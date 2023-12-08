@@ -1,7 +1,7 @@
 # Puppy Day
 
 
-![image](https://github.com/ch0rckbean/puppyDay/assets/86273626/587d1a71-fd47-4463-9937-945a8193556a)
+![image](https://github.com/ch0rckbean/puppyDay/assets/86273626/139150b8-91fc-4828-b569-4c077fedcb79)
 
 ## 개요
 
@@ -15,7 +15,7 @@ Interactive Web
 
 동작은 네이버와 똑같이 구성했고, 이미지, 버튼, 음성 등의 소스만 다르게 구현했습니다.
 
-처음에는 모바일에 최적화된 웹 크기로 제작했지만, 추후 미디어 쿼리와 resize 이벤트를 통해 반응형 으로 리팩토링 했습니다.
+처음에는 모바일에 최적화된 웹 크기로 제작했지만, 추후 미디어 쿼리와 resize 이벤트를 통해 반응형으로 리팩토링 했습니다.
 ![image](https://github.com/ch0rckbean/puppyDay/assets/86273626/70b45318-2680-4b85-9ee2-2798ca1900f7)
 
 ### 참고 예시 - 네이버 [세계 강아지의 날] 인터랙티브 웹
@@ -38,7 +38,7 @@ Interactive Web
 
 ### 기능
 
-![1](https://github.com/ch0rckbean/puppyDay/assets/86273626/90b0220c-c317-420d-9c9b-354e8487fec5)
+![image](https://github.com/ch0rckbean/puppyDay/assets/86273626/15c0f0a7-86ee-445a-8786-0bb666735560)
 
 1. 강아지 얼굴 버튼을 클릭하면 강아지 소리가 나며 화면에 강아지 한 마리가 걸어갑니다.
 2. 이후 화면 아무 곳을 클릭하면 클릭한 위치에 랜덤한 생김새의 강아지가 생기며 걸어다닙니다. 
