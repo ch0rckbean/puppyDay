@@ -5,8 +5,8 @@ body {
   overflow: hidden;
   margin: auto;
   text-align: center;
-  position: relative;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 #background {
@@ -18,14 +18,19 @@ body {
 }
 button {
   background-color: #30e3df;
-  width: 30%;
-  height: 40%;
+  width: 20%;
+  height: 15%;
   border-radius: 50px;
   box-shadow: 10px 10px #5bc0f8;
   border: none;
   text-align: center;
-  flex: 0.3;
   flex-direction: column;
+
+  @media (min-width: 800px) {
+    /* 큰 화면 */
+    width: 10%;
+    height: 10%;
+  }
 }
 #btnImg {
   width: 80%;
@@ -33,14 +38,21 @@ button {
   padding: 7px;
 }
 #bubble {
-  width: 30%;
+  width: 35%;
   height: 50%;
   flex: 0.7;
   padding-top: 10%;
   flex-direction: column;
   animation: motion 0.3s linear 0s infinite alternate;
   margin-top: 0;
+
+  @media (min-width: 800px) {
+    /* 큰 화면 */
+    width: 20%;
+    height: 20%;
+  }
 }
+
 @keyframes motion {
   0% {
     margin-top: 0px;

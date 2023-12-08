@@ -4,11 +4,9 @@ var myHeight = window.innerHeight;
 var myBg = document.querySelector('body');
 var sound = document.getElementById('sound');
 
-document.addEventListener('resize', function () {
-  myWidth = myBg.width;
-  myHeight = myBg.height;
-  //   console.log(myWidth);
-  //   console.log(myHeight);
+window.addEventListener('resize', function () {
+  myWidth = window.innerWidth;
+  myHeight = window.innerHeight;
 });
 btn.addEventListener('click', start);
 btn.addEventListener('touch', start);
@@ -34,8 +32,10 @@ function move() {
   var j = Math.floor(Math.random() * 2);
   img.src = imgsLeft[j];
   console.log('first img =', j);
-  img.style.width = '80px';
-  img.style.height = '100px';
+  img.style.width = '7%';
+  img.style.height = '10%';
+  // img.style.width = '80px';
+  // img.style.height = '100px';
   document.body.appendChild(img);
   document.addEventListener('touchstart', touch);
   goLeft(img, -myWidth - img.width);
