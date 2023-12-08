@@ -9,13 +9,14 @@ National Puppy Day - Naver - Clone Coding
 
 Interactive Web
 
-For Mobile
+**For Mobile => Responsive**
 
 세계 강아지의 날을 맞아 [네이버에서 구현된 이벤트](https://www.notion.so/Puppy-Day-d2cd1ffff3654daf8775109cd38463d2?pvs=21)를 클론 코딩한 프로젝트입니다.
 
 동작은 네이버와 똑같이 구성했고, 이미지, 버튼, 음성 등의 소스만 다르게 구현했습니다.
 
-모바일에 최적화된 웹 크기로 제작했습니다.
+처음에는 모바일에 최적화된 웹 크기로 제작했지만, 추후 미디어 쿼리와 resize 이벤트를 통해 반응형 으로 리팩토링 했습니다.
+![image](https://github.com/ch0rckbean/puppyDay/assets/86273626/70b45318-2680-4b85-9ee2-2798ca1900f7)
 
 ### 참고 예시 - 네이버 [세계 강아지의 날] 인터랙티브 웹
 
