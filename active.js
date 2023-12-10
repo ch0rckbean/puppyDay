@@ -34,8 +34,6 @@ function move() {
   console.log('first img =', j);
   img.style.width = '7%';
   img.style.height = '10%';
-  // img.style.width = '80px';
-  // img.style.height = '100px';
   document.body.appendChild(img);
   document.addEventListener('touchstart', touch);
   goLeft(img, -myWidth - img.width);
