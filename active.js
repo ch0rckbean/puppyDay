@@ -28,7 +28,6 @@ function start() {
 
 function move() {
   //강아지 한마리 일단 나와서 이동
-  // alert(imgsLeft[0]);
   let img = document.createElement('img');
   let j = Math.floor(Math.random() * 2);
   img.src = imgsLeft[j];
