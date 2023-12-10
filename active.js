@@ -4,7 +4,7 @@ let myHeight = window.innerHeight;
 let myBg = document.querySelector('body');
 let sound = document.getElementById('sound');
 
-window.addEventListener('resize', function () {
+window.addEventListener('resize', () => {
   myWidth = window.innerWidth;
   myHeight = window.innerHeight;
 });
@@ -22,50 +22,60 @@ let imgsLeft = ['./imgs/dogL1.gif', './imgs/dogL2.gif'];
 let imgsRight = ['./imgs/dogR1.gif', './imgs/dogR2.gif', './imgs/dogR3.gif'];
 
 function start() {
-  //btn 처음 클릭 시
-  move();
-}
-
-function move() {
-  //강아지 한마리 일단 나와서 이동
+  //btn 처음 클릭 시 강아지 한마리 일단 나와서 이동
   let img = document.createElement('img');
-  let j = Math.floor(Math.random() * 2);
-  img.src = imgsLeft[j];
-  console.log('first img =', j);
-  img.style.width = '7%';
-  img.style.height = '10%';
+  let randNum = Math.floor(Math.random() * 2);
+  img.src = imgsLeft[randNum];
+  // console.log('first img =', imgsLeft[randNum]);
+
+  img.style.width = '15%';
+  img.style.height = '12%';
   document.body.appendChild(img);
-  document.addEventListener('touchstart', touch);
+
+  document.addEventListener('touchstart', makeDog);
+  document.addEventListener('onclick', makeDog);
+
   goLeft(img, -myWidth - img.width);
   sound.play();
 }
 
-function touch(e) {
+function makeDog(e) {
   //터치 좌표 기준 강아지 이동
   let img = document.createElement('img');
-  img.style.width = '80px';
-  img.style.height = '100px';
+  img.style.width = '12%';
+  img.style.height = '10%';
   document.body.appendChild(img);
-  let i = Math.floor(Math.random() * 5);
-  img.src = imgs[i]; //0,1: Left 2,3,4: Right
+  let secRandNum = Math.floor(Math.random() * 5);
+  img.src = imgs[secRandNum]; //0,1: Left 2,3,4: Right
+  let imgX, imgY;
+  imgY = -img.height / 10 + e.changedTouches[0].clientY;
 
-  let imgX = e.changedTouches[0].clientX - img.width / 2;
-  let imgY = -img.height / 10 + e.changedTouches[0].clientY;
+  if (myWidth < 800) {
+    // Mobile
+    imgX = e.changedTouches[0].clientX - img.width / 2;
+  } else if ((myWidth > 800) & (myWidth < 1200)) {
+    // PC
+    imgX = e.changedTouches[0].clientX;
+  } else if (myWidth > 1200) {
+    // Wide PC
+    imgX = e.changedTouches[0].clientX;
+  }
+
   img.style.position = 'absolute';
   img.style.top = imgY + 'px';
   img.style.left = imgX + 'px';
 
-  // console.log('next img =', i);
   // console.log('imgX: ' + parseInt(img.style.left));
   // console.log('touchX: ' + e.changedTouches[0].clientX);
   // console.log('imgY: ' + parseInt(img.style.top));
   // console.log('touchY: ' + e.changedTouches[0].clientY);
-  if (i <= 1) {
+
+  if (secRandNum <= 1) {
+    // 왼쪽으로 가는 강아지
     goLeft(img, -myWidth - img.width);
-    // console.log(-myWidth - img.width);
   } else {
+    // 오른쪽으로 가는 강아지
     goRight(img, myWidth - img.width);
-    // console.log('myWidth', myWidth - img.width);
   }
 }
 
