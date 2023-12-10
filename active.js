@@ -63,13 +63,12 @@ function touch(e) {
   // console.log('touchX: ' + e.changedTouches[0].clientX);
   // console.log('imgY: ' + parseInt(img.style.top));
   // console.log('touchY: ' + e.changedTouches[0].clientY);
-
   if (i <= 1) {
     goLeft(img, -myWidth - img.width);
-    console.log(-myWidth - img.width);
+    // console.log(-myWidth - img.width);
   } else {
     goRight(img, myWidth - img.width);
-    console.log('myWidth', myWidth - img.width);
+    // console.log('myWidth', myWidth - img.width);
   }
 }
 
