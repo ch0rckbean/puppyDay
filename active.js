@@ -5,7 +5,7 @@ let myHeight = window.innerHeight;
 let myBg = document.querySelector('.background');
 let sound = document.getElementById('sound');
 
-// 초기 위치 중앙 설정
+// 초기 버튼, 말풍선 위치 중앙 설정
 btn.style.left = myWidth / 2 - btn.offsetWidth / 2 + 'px';
 btn.style.top = myHeight / 2 - btn.offsetHeight / 2 + 'px';
 bubble.style.left = myWidth / 2 - bubble.offsetWidth / 2 + 'px';
@@ -28,6 +28,7 @@ btn.addEventListener('click', start);
 btn.addEventListener('touchstart', start);
 
 let imgs = [
+  // 강아지 배열
   './imgs/dogL1.gif',
   './imgs/dogL2.gif',
   './imgs/dogR1.gif',
@@ -75,14 +76,11 @@ function makeDog(e) {
   if (myWidth < 800) {
     // Mobile
     imgX = e.clientX - img.width / 2;
-    // imgX = e.changedTouches[0].clientX - img.width / 2;
   } else if ((myWidth > 800) & (myWidth < 1200)) {
     // PC
-    // imgX = e.changedTouches[0].clientX;
     imgX = e.clientX;
   } else if (myWidth > 1200) {
     // Wide PC
-    // imgX = e.changedTouches[0].clientX;
     imgX = e.clientX;
   }
 
