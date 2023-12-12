@@ -1,13 +1,23 @@
 let btn = document.getElementById('btn');
+let bubble = document.getElementById('bubble');
 let myWidth = window.innerWidth;
 let myHeight = window.innerHeight;
 let myBg = document.querySelector('.background');
 let sound = document.getElementById('sound');
 
+// 화면 크기 변경 이벤트
 window.addEventListener('resize', () => {
   myWidth = window.innerWidth;
   myHeight = window.innerHeight;
+
+  // 버튼, 말풍선 화면 중앙으로
+  btn.style.left = myWidth / 2 - btn.offsetWidth / 2 + 'px';
+  btn.style.top = myHeight / 2 - btn.offsetHeight / 2 + 'px';
+  bubble.style.left = myWidth / 2 - bubble.offsetWidth / 2 + 'px';
+  bubble.style.top = myHeight / 2.5 - bubble.offsetHeight + 'px';
 });
+
+// 강아지 생성 이벤트
 btn.addEventListener('click', start);
 btn.addEventListener('touchstart', start);
 
@@ -83,7 +93,7 @@ function makeDog(e) {
     goLeft(img, -myWidth - img.width);
   } else {
     // 오른쪽으로 가는 강아지
-    goRight(img, myWidth - img.width);
+    goRight(img, myWidth + img.width);
   }
 }
 
@@ -98,7 +108,9 @@ function goLeft(img, to) {
       iterations: 1,
       fill: 'both',
     }
-  );
+  ).onfinish = () => {
+    img.remove();
+  };
 }
 
 function goRight(img, to) {
@@ -112,5 +124,7 @@ function goRight(img, to) {
       iterations: 1,
       fill: 'both',
     }
-  );
+  ).onfinish = () => {
+    img.remove();
+  };
 }
