@@ -1,7 +1,7 @@
 let btn = document.getElementById('btn');
 let myWidth = window.innerWidth;
 let myHeight = window.innerHeight;
-let myBg = document.querySelector('body');
+let myBg = document.querySelector('.background');
 let sound = document.getElementById('sound');
 
 window.addEventListener('resize', () => {
@@ -9,7 +9,7 @@ window.addEventListener('resize', () => {
   myHeight = window.innerHeight;
 });
 btn.addEventListener('click', start);
-btn.addEventListener('touch', start);
+btn.addEventListener('touchstart', start);
 
 let imgs = [
   './imgs/dogL1.gif',
@@ -28,12 +28,12 @@ function start() {
   img.src = imgsLeft[randNum];
   // console.log('first img =', imgsLeft[randNum]);
 
-  img.style.width = '15%';
-  img.style.height = '12%';
+  img.style.width = myWidth / 100 + '%';
+  img.style.height = myHeight / 100 + '%';
   document.body.appendChild(img);
 
   document.addEventListener('touchstart', makeDog);
-  document.addEventListener('onclick', makeDog);
+  document.addEventListener('click', makeDog);
 
   goLeft(img, -myWidth - img.width);
   sound.play();
@@ -42,29 +42,37 @@ function start() {
 function makeDog(e) {
   //터치 좌표 기준 강아지 이동
   let img = document.createElement('img');
-  img.style.width = '12%';
-  img.style.height = '10%';
+  if (myWidth > 800) {
+    img.style.width = '10vw';
+    img.style.height = '12vh';
+  } else {
+    img.style.width = '24vw';
+    img.style.height = '20vh%';
+  }
   document.body.appendChild(img);
+
   let secRandNum = Math.floor(Math.random() * 5);
   img.src = imgs[secRandNum]; //0,1: Left 2,3,4: Right
   let imgX, imgY;
-  imgY = -img.height / 10 + e.changedTouches[0].clientY;
+  imgY = -img.height / 10 + e.clientY;
 
   if (myWidth < 800) {
     // Mobile
-    imgX = e.changedTouches[0].clientX - img.width / 2;
+    imgX = e.clientX - img.width / 2;
+    // imgX = e.changedTouches[0].clientX - img.width / 2;
   } else if ((myWidth > 800) & (myWidth < 1200)) {
     // PC
-    imgX = e.changedTouches[0].clientX;
+    // imgX = e.changedTouches[0].clientX;
+    imgX = e.clientX;
   } else if (myWidth > 1200) {
     // Wide PC
-    imgX = e.changedTouches[0].clientX;
+    // imgX = e.changedTouches[0].clientX;
+    imgX = e.clientX;
   }
 
   img.style.position = 'absolute';
   img.style.top = imgY + 'px';
   img.style.left = imgX + 'px';
-
   // console.log('imgX: ' + parseInt(img.style.left));
   // console.log('touchX: ' + e.changedTouches[0].clientX);
   // console.log('imgY: ' + parseInt(img.style.top));
