@@ -5,6 +5,12 @@ let myHeight = window.innerHeight;
 let myBg = document.querySelector('.background');
 let sound = document.getElementById('sound');
 
+// 초기 위치 중앙 설정
+btn.style.left = myWidth / 2 - btn.offsetWidth / 2 + 'px';
+btn.style.top = myHeight / 2 - btn.offsetHeight / 2 + 'px';
+bubble.style.left = myWidth / 2 - bubble.offsetWidth / 2 + 'px';
+bubble.style.top = myHeight / 2.5 - bubble.offsetHeight + 'px';
+
 // 화면 크기 변경 이벤트
 window.addEventListener('resize', () => {
   myWidth = window.innerWidth;
@@ -39,7 +45,7 @@ function start() {
   // console.log('first img =', imgsLeft[randNum]);
 
   img.style.width = myWidth / 100 + '%';
-  img.style.height = myHeight / 100 + '%';
+  img.style.height = myHeight / 90 + '%';
   document.body.appendChild(img);
 
   document.addEventListener('touchstart', makeDog);
