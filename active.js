@@ -64,7 +64,7 @@ function makeDog(e) {
     img.style.height = '12vh';
   } else {
     img.style.width = '24vw';
-    img.style.height = '20vh%';
+    img.style.height = '20vh';
   }
   document.body.appendChild(img);
 
@@ -72,6 +72,7 @@ function makeDog(e) {
   img.src = imgs[secRandNum]; //0,1: Left 2,3,4: Right
   let imgX, imgY;
   imgY = -img.height / 10 + e.clientY;
+  console.log(e.changedTouches);
 
   if (myWidth < 800) {
     // Mobile
@@ -113,6 +114,7 @@ function goLeft(img, to) {
       fill: 'both',
     }
   ).onfinish = () => {
+    // 애니메이션 종료 시 강아지 삭제
     img.remove();
   };
 }
@@ -129,6 +131,7 @@ function goRight(img, to) {
       fill: 'both',
     }
   ).onfinish = () => {
+    // 애니메이션 종료 시 강아지 삭제
     img.remove();
   };
 }
